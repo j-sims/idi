@@ -1,0 +1,2 @@
+CREATE DATABASE isi_data_insights;
+CREATE RETENTION POLICY three_year ON isi_data_insights 3y REPLICATION 1 DEFAULT;

@@ -1,0 +1,39 @@
+version: '2.2'
+services:
+  influxdb:
+    restart: always
+    image: "influxdb:1.8"
+    ports:
+      - 8086:8086
+    volumes:
+      - $PWD/influxdb/data:/var/lib/influxdb
+      - $PWD/influxdb/conf/influxdb.conf:/etc/influxdb/influxdb.conf:ro
+      - $PWD/influxdb/init:/docker-entrypoint-initdb.d
+    networks:
+      - isidatainsights
+  grafana:
+    restart: always
+    image: "grafana/grafana-oss"
+    links:
+      - influxdb
+    ports:
+      - 3000:3000
+    volumes:
+      - $PWD/grafana_extras/provisioning:/etc/grafana/provisioning
+      - $PWD/grafana_extras/dashboards:/var/lib/grafana/dashboards
+    networks:
+      - isidatainsights  
+  gostats:
+    links:
+      - influxdb:influxdb
+    restart: always
+    build: gostats
+    volumes:
+      - $PWD/clusters.toml:/clusters.toml
+    environment:
+      - LOGLEVEL=INFO
+    networks:
+      - isidatainsights
+networks:
+  isidatainsights:
+    name: isidatainsights

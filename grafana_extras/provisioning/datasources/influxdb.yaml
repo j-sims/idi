@@ -1,0 +1,11 @@
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    database: isi_data_insights
+    url: http://influxdb:8086
+    isDefault: true
+    jsonData:
+      httpMode: GET

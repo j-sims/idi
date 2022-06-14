@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+
+set timeout 10
+
+spawn /usr/bin/gpg --edit-key "Dell UDS CAE" trust 
+
+expect "Your decision? " { send "5\r" }
+expect "Do you really want to set this key to ultimate trust? (y/N) " { send "y\r" }
+expect "gpg>" { send "save\r"}
+
+interact
