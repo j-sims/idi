@@ -4,6 +4,18 @@
 
 This repo provides an easy to install dockerized build of the Isilon Data Insights Dashboards with Grafana, InfluxDB and the API stats collector. The docker build pulls from public repositories to installed and configure the containers enabling an easy to use graphical performance charting tool for monitoring and reporting on Isilon/PowerScale performance. The collector can scale to monitor as many clusters as needed.
 
+## Table of Contents
+- [Pre-Requisites](https://github.com/j-sims/idi#pre-requisites)
+- [Quick Start Instructions](https://github.com/j-sims/idi#quick-start-instructions)
+- [Linux Install Steps](https://github.com/j-sims/idi#steps-for-building-vms-for-docker)
+  - [Rocky Linux](https://github.com/j-sims/idi#detailed-instructions-for-rocky-linux)
+  - [Ubuntu Linux](https://github.com/j-sims/idi#detailed-instructions-for-ubuntu-linux)
+-[Administration Info]((https://github.com/j-sims/idi#administration-info)
+  - [Upgrade]((https://github.com/j-sims/idi#upgrading-idi)
+  - [Backups]((https://github.com/j-sims/idi#backing-up-the-database)
+  - [Adding More Clusters]((https://github.com/j-sims/idi#adding-more-clusters)
+
+---
 ## Pre-Requisites
 - Linux host (physical or VM) 
   - [Rocky Linux Detailed Build Steps](https://github.com/j-sims/idi#detailed-instructions-for-rocky-linux)
@@ -122,3 +134,9 @@ git clone https://github.com/j-sims/idi.git
 cd idi/
 bash run.sh build
 ```
+---
+# Administration Info
+Below is info on the build to ease the administration of the Isilon Data Insights environment
+## Upgrading Idi
+## Backing up the database
+## Adding more clusters
