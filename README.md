@@ -30,10 +30,8 @@ bash run.sh build
 ```
 ##### Step 4 - Use web browser to connect to the host on port 3000
 
-<p>
-  </p>
-Below are the detailed steps for building a VM to run the docker environment on.
-
+---
+## Steps for Building VMs for Docker
 ---
 ## Detailed Instructions for Rocky Linux
 These steps provide details how building and Rocky Linux 8.6 (CentOS) VM and the docker environment needed to run idi
@@ -84,4 +82,43 @@ bash run.sh build
 
 ---
 ## Detailed Instructions for Ubuntu Linux
+These steps provide details how building and Ubuntu Linux 22.04 VM and the docker environment needed to run idi
 
+##### Download the ISO
+https://releases.ubuntu.com/22.04/ubuntu-22.04-live-server-amd64.iso
+
+##### Create a VM with a minimum of 4G Ram and 20G Disk 
+
+##### Boot the VM
+- default install of Ubuntu Server Base
+- accept or change partitioning as desired
+- Create default user
+- Install Openssh for remote access
+- Do not select more packages at install
+- Start install and allow to run to completion then reboot
+
+
+##### Update and Reboot
+```
+sudo su -
+apt update
+apt upgrade -y
+reboot
+```
+##### Install docker, docker-compose & git
+```
+apt install -y docker.io docker-compose git
+docker run hello-world  && echo Success
+```
+
+##### Open Firewall Port 3000
+```
+ufs allow 3000/tcp
+```
+
+##### Clone, Build and Start idi
+```
+git clone https://github.com/j-sims/idi.git
+cd idi/
+bash run.sh build
+```
