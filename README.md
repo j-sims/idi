@@ -6,8 +6,8 @@ This repo provides an easy to install dockerized build of the Isilon Data Insigh
 
 ## Pre-Requisites
 - Linux host (physical or VM) 
-  - [Rocky Linux Detailed Build Steps](https://github.com/j-sims/idi/edit/main/README.md#detailed-instructions-for-rocky-linux)
-  - [Ubuntu Linux Detailed Build Steps](https://github.com/j-sims/idi/edit/main/README.md#detailed-instructions-for-ubuntu-linux)
+  - [Rocky Linux Detailed Build Steps](https://github.com/j-sims/idi#detailed-instructions-for-rocky-linux)
+  - [Ubuntu Linux Detailed Build Steps](https://github.com/j-sims/idi#detailed-instructions-for-ubuntu-linux)
 - 1 CPU and 4G of memory (more if monitoring more clusters)
 - recent version of docker (tested with 1:20), docker-compose and git
 - open firewall port 3000 for grafana access
