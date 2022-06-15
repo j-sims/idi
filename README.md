@@ -138,5 +138,8 @@ bash run.sh build
 # Administration Info
 Below is info on the build to ease the administration of the Isilon Data Insights environment
 ## Upgrading Idi
+stay tuned!
 ## Backing up the database
+stay tuned!
 ## Adding more clusters
+stay tuned!
