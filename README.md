@@ -10,10 +10,10 @@ This repo provides an easy to install dockerized build of the Isilon Data Insigh
 - [Linux Install Steps](https://github.com/j-sims/idi#steps-for-building-vms-for-docker)
   - [Rocky Linux](https://github.com/j-sims/idi#detailed-instructions-for-rocky-linux)
   - [Ubuntu Linux](https://github.com/j-sims/idi#detailed-instructions-for-ubuntu-linux)
--[Administration Info]((https://github.com/j-sims/idi#administration-info)
-  - [Upgrade]((https://github.com/j-sims/idi#upgrading-idi)
-  - [Backups]((https://github.com/j-sims/idi#backing-up-the-database)
-  - [Adding More Clusters]((https://github.com/j-sims/idi#adding-more-clusters)
+- [Administration Info](https://github.com/j-sims/idi#administration-info)
+  - [Upgrade](https://github.com/j-sims/idi#upgrading-idi)
+  - [Backups](https://github.com/j-sims/idi#backing-up-the-database)
+  - [Adding More Clusters](https://github.com/j-sims/idi#adding-more-clusters)
 
 ---
 ## Pre-Requisites
