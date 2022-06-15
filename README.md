@@ -28,11 +28,7 @@ cd idi
 ```
 bash run.sh build
 ```
-##### Step 4 - Start the containers
-```
-bash run.sh start
-```
-##### Step 5 - Use web browser to connect to the host on port 3000
+##### Step 4 - Use web browser to connect to the host on port 3000
 
 <p>
   </p>
@@ -84,7 +80,6 @@ firewall-cmd --zone=public --permanent --add-port 3000/tcp
 git clone https://github.com/j-sims/idi.git
 cd idi/
 bash run.sh build
-bash run.sh start
 ```
 
 ---
