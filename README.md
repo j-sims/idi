@@ -102,7 +102,7 @@ https://releases.ubuntu.com/22.04/ubuntu-22.04-live-server-amd64.iso
 ##### Create a VM with a minimum of 4G Ram and 20G Disk 
 
 ##### Boot the VM
-- default install of Ubuntu Server Base
+- Minimial Install of Ubuntu Server 22.04
 - accept or change partitioning as desired
 - Create default user
 - Install Openssh for remote access
@@ -119,13 +119,14 @@ reboot
 ```
 ##### Install docker, docker-compose & git
 ```
+sudo su -
 apt install -y docker.io docker-compose git
 docker run hello-world  && echo Success
 ```
 
 ##### Open Firewall Port 3000
 ```
-ufs allow 3000/tcp
+ufw allow 3000/tcp
 ```
 
 ##### Clone, Build and Start idi
