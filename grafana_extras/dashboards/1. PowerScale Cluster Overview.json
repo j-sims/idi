@@ -7,22 +7,10 @@
       "type": "datasource",
       "pluginId": "influxdb",
       "pluginName": "InfluxDB"
-    },
-    {
-      "name": "DS_EXPRESSION",
-      "label": "Expression",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "__expr__"
     }
   ],
   "__elements": [],
   "__requires": [
-    {
-      "type": "datasource",
-      "id": "__expr__",
-      "version": "1.0.0"
-    },
     {
       "type": "panel",
       "id": "gauge",
@@ -89,7 +77,7 @@
   "gnetId": 2504,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1657050122901,
+  "iteration": 1657052524996,
   "links": [
     {
       "asDropdown": false,
@@ -1458,7 +1446,7 @@
               "type": "linear"
             },
             "showPoints": "always",
-            "spanNulls": false,
+            "spanNulls": true,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -1588,7 +1576,7 @@
           "groupBy": [
             {
               "params": [
-                "1h"
+                "$__interval"
               ],
               "type": "time"
             },
@@ -1608,6 +1596,7 @@
           "hosts": "",
           "measurement": "ifs.bytes.used",
           "metric": "dfs.FSNamesystem.CapacityUsedGB",
+          "orderByTime": "ASC",
           "policy": "default",
           "precision": "default",
           "refId": "A",
@@ -1649,7 +1638,7 @@
           "groupBy": [
             {
               "params": [
-                "1h"
+                "$__interval"
               ],
               "type": "time"
             },
@@ -1668,6 +1657,7 @@
           ],
           "measurement": "ifs.bytes.total",
           "metric": "dfs.FSNamesystem.CapacityTotalGB",
+          "orderByTime": "ASC",
           "policy": "default",
           "precision": "default",
           "refId": "B",
@@ -1694,16 +1684,6 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
-        },
-        {
-          "datasource": {
-            "type": "__expr__",
-            "uid": "${DS_EXPRESSION}"
-          },
-          "expression": "$A/$B",
-          "hide": false,
-          "refId": "C",
-          "type": "math"
         }
       ],
       "title": "Capacity Cluster Wide",
@@ -2353,8 +2333,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
-                "value": null
+                "color": "red"
               },
               {
                 "color": "#EAB839",
@@ -2604,8 +2583,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2835,8 +2813,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3038,8 +3015,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3243,8 +3219,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3510,7 +3485,7 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -3537,6 +3512,6 @@
   "timezone": "browser",
   "title": "1. PowerScale Cluster Overview",
   "uid": "0aP7FFVWk",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }
