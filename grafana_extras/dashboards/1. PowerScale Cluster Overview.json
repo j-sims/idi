@@ -89,7 +89,7 @@
   "gnetId": 2504,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1657046404150,
+  "iteration": 1657050122901,
   "links": [
     {
       "asDropdown": false,
@@ -107,7 +107,7 @@
   "liveNow": false,
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -115,31 +115,30 @@
         "y": 0
       },
       "id": 70,
-      "panels": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "description": "",
-          "gridPos": {
-            "h": 5,
-            "w": 24,
-            "x": 0,
-            "y": 1
-          },
-          "id": 68,
-          "options": {
-            "content": "<h1>Welcome to the PowerScale Data Insights.</h1> \n\nThis tool was designed to give customer and Dell UDS Presales a simple easy way to collect and share relevant telemetry information from OneFS Clusters. Feel free to integrate with other Grafana dashbaords and data sources to create application based mash-ups and provide a deeper <b>insight</b>.<br>\n<br>On this dashboard you will find relevant cluster wide statistics that can give a quick glimpse as to what is happening across a broad set of metrics.\nIt can be used to identify and drill down on time ranges of interest. \nUse these time ranges on other dashbaords to further analysis.\n<br>\n<h3>Usage Notes</h3>\nUse the cluster and other pull downs to select the cluster and protocol(s) of interest.  A seperate chart will be displayed for each protocol chosen.\n<br>Use highlight with your mouse the time period you want to zoom into or use the pull downs at the top right to select specific time periods.\n<br>Note that by default the dates and time displayed are in your browser’s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n<br>If there is a legend displayed you can click on elements within it to hide or display items, etc.\n<br>Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n<br>The charts are displayed to connect the data points and the null values so drop-outs will look weird.\n",
-            "mode": "html"
-          },
-          "pluginVersion": "9.0.2",
-          "title": "Introduction",
-          "type": "text"
-        }
-      ],
+      "panels": [],
       "title": "Intro",
       "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "InfluxDB"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 68,
+      "options": {
+        "content": "<h1>Welcome to the PowerScale Data Insights.</h1> \n\nThis tool was designed to give customer and Dell UDS Presales a simple easy way to collect and share relevant telemetry information from OneFS Clusters. Feel free to integrate with other Grafana dashbaords and data sources to create application based mash-ups and provide a deeper <b>insight</b>.<br>\n<br>On this dashboard you will find relevant cluster wide statistics that can give a quick glimpse as to what is happening across a broad set of metrics.\nIt can be used to identify and drill down on time ranges of interest. \nUse these time ranges on other dashbaords to further analysis.\n<br>\n<br>\n<h3>Usage Notes</h3>\n<li>Use the cluster and other pull downs to select the cluster and protocol(s) of interest.  A seperate chart will be displayed for each protocol chosen.\n<li>Use highlight with your mouse the time period you want to zoom into or use the pull downs at the top right to select specific time periods.\n<li>Note that by default the dates and time displayed are in your browser’s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n<li>If there is a legend displayed you can click on elements within it to hide or display items, etc.\n<li>Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n<li>The charts are displayed to connect the data points and the null values so drop-outs will look weird.\n",
+        "mode": "html"
+      },
+      "pluginVersion": "9.0.2",
+      "title": "Introduction",
+      "type": "text"
     },
     {
       "collapsed": false,
@@ -151,7 +150,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 10
       },
       "id": 37,
       "panels": [],
@@ -198,7 +197,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 2
+        "y": 11
       },
       "id": 25,
       "links": [],
@@ -316,7 +315,7 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 2
+        "y": 11
       },
       "id": 27,
       "links": [],
@@ -434,7 +433,7 @@
         "h": 7,
         "w": 6,
         "x": 12,
-        "y": 2
+        "y": 11
       },
       "id": 26,
       "links": [],
@@ -552,7 +551,7 @@
         "h": 7,
         "w": 6,
         "x": 18,
-        "y": 2
+        "y": 11
       },
       "id": 66,
       "links": [],
@@ -640,7 +639,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 18
       },
       "id": 38,
       "panels": [],
@@ -716,7 +715,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 19
       },
       "id": 15,
       "links": [],
@@ -958,7 +957,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 17
+        "y": 26
       },
       "id": 34,
       "links": [],
@@ -1041,7 +1040,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 28
+        "y": 37
       },
       "id": 39,
       "panels": [],
@@ -1109,7 +1108,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 38
       },
       "id": 30,
       "links": [],
@@ -1217,7 +1216,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 39
+        "y": 48
       },
       "id": 40,
       "panels": [],
@@ -1285,7 +1284,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 49
       },
       "id": 3,
       "links": [],
@@ -1493,7 +1492,7 @@
           {
             "matcher": {
               "id": "byFrameRefID",
-              "options": "D"
+              "options": "C"
             },
             "properties": [
               {
@@ -1554,7 +1553,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 56
       },
       "id": 4,
       "links": [],
@@ -1703,7 +1702,7 @@
           },
           "expression": "$A/$B",
           "hide": false,
-          "refId": "D",
+          "refId": "C",
           "type": "math"
         }
       ],
@@ -1773,7 +1772,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 56
       },
       "id": 65,
       "links": [],
@@ -1909,7 +1908,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 56
+        "y": 65
       },
       "id": 42,
       "panels": [],
@@ -1927,7 +1926,7 @@
         "h": 7,
         "w": 2,
         "x": 0,
-        "y": 57
+        "y": 66
       },
       "id": 19,
       "links": [],
@@ -1976,7 +1975,7 @@
         "h": 7,
         "w": 5,
         "x": 2,
-        "y": 57
+        "y": 66
       },
       "id": 57,
       "links": [],
@@ -2169,7 +2168,7 @@
         "h": 7,
         "w": 17,
         "x": 7,
-        "y": 57
+        "y": 66
       },
       "id": 31,
       "links": [],
@@ -2308,7 +2307,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 64
+        "y": 73
       },
       "id": 43,
       "panels": [],
@@ -2326,7 +2325,7 @@
         "h": 7,
         "w": 2,
         "x": 0,
-        "y": 65
+        "y": 74
       },
       "id": 20,
       "links": [],
@@ -2375,7 +2374,7 @@
         "h": 7,
         "w": 5,
         "x": 2,
-        "y": 65
+        "y": 74
       },
       "id": 56,
       "links": [],
@@ -2622,7 +2621,7 @@
         "h": 7,
         "w": 17,
         "x": 7,
-        "y": 65
+        "y": 74
       },
       "id": 17,
       "links": [],
@@ -2761,7 +2760,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 72
+        "y": 81
       },
       "id": 44,
       "panels": [],
@@ -2779,7 +2778,7 @@
         "h": 7,
         "w": 2,
         "x": 0,
-        "y": 73
+        "y": 82
       },
       "id": 21,
       "links": [],
@@ -2866,7 +2865,7 @@
         "h": 7,
         "w": 22,
         "x": 2,
-        "y": 73
+        "y": 82
       },
       "id": 18,
       "links": [],
@@ -3056,7 +3055,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 80
+        "y": 89
       },
       "id": 24,
       "links": [],
@@ -3193,7 +3192,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 88
+        "y": 97
       },
       "id": 48,
       "panels": [],
@@ -3261,7 +3260,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 89
+        "y": 98
       },
       "id": 59,
       "links": [],
@@ -3511,7 +3510,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
