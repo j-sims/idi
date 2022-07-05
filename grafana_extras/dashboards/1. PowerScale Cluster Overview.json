@@ -1,16 +1,28 @@
 {
   "__inputs": [
     {
-      "name": "InfluxDB",
-      "label": "isilon metrics",
+      "name": "DS_INFLUXDB",
+      "label": "InfluxDB",
       "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
       "pluginName": "InfluxDB"
+    },
+    {
+      "name": "DS_EXPRESSION",
+      "label": "Expression",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "__expr__"
     }
   ],
   "__elements": [],
   "__requires": [
+    {
+      "type": "datasource",
+      "id": "__expr__",
+      "version": "1.0.0"
+    },
     {
       "type": "panel",
       "id": "gauge",
@@ -21,7 +33,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.5.4"
+      "version": "9.0.2"
     },
     {
       "type": "datasource",
@@ -77,7 +89,7 @@
   "gnetId": 2504,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1655233744890,
+  "iteration": 1656602919292,
   "links": [
     {
       "asDropdown": false,
@@ -95,7 +107,7 @@
   "liveNow": false,
   "panels": [
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -103,30 +115,31 @@
         "y": 0
       },
       "id": 70,
-      "panels": [],
+      "panels": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "description": "",
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 68,
+          "options": {
+            "content": "<h1>Welcome to the PowerScale Data Insights.</h1> \n\nThis tool was designed to give customer and Dell UDS Presales a simple easy way to collect and share relevant telemetry information from OneFS Clusters. Feel free to integrate with other Grafana dashbaords and data sources to create application based mash-ups and provide a deeper <b>insight</b>.<br>\n<br>On this dashboard you will find relevant cluster wide statistics that can give a quick glimpse as to what is happening across a broad set of metrics.\nIt can be used to identify and drill down on time ranges of interest. \nUse these time ranges on other dashbaords to further analysis.\n<br>\n<h3>Usage Notes</h3>\nUse the cluster and other pull downs to select the cluster and protocol(s) of interest.  A seperate chart will be displayed for each protocol chosen.\n<br>Use highlight with your mouse the time period you want to zoom into or use the pull downs at the top right to select specific time periods.\n<br>Note that by default the dates and time displayed are in your browser’s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n<br>If there is a legend displayed you can click on elements within it to hide or display items, etc.\n<br>Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n<br>The charts are displayed to connect the data points and the null values so drop-outs will look weird.\n",
+            "mode": "html"
+          },
+          "pluginVersion": "9.0.2",
+          "title": "Introduction",
+          "type": "text"
+        }
+      ],
       "title": "Intro",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "description": "",
-      "gridPos": {
-        "h": 5,
-        "w": 24,
-        "x": 0,
-        "y": 1
-      },
-      "id": 68,
-      "options": {
-        "content": "<h1>Welcome to the PowerScale Data Insights.</h1> \n\nThis tool was designed to give customer and Dell UDS Presales a simple easy way to collect and share relevant telemetry information from OneFS Clusters. Feel free to integrate with other Grafana dashbaords and data sources to create application based mash-ups and provide a deeper <b>insight</b>.<br>\n<br>On this dashboard you will find relevant cluster wide statistics that can give a quick glimpse as to what is happening across a broad set of metrics.\nIt can be used to identify and drill down on time ranges of interest. \nUse these time ranges on other dashbaords to further analysis.\n<br>\n<h3>Usage Notes</h3>\nUse the cluster and other pull downs to select the cluster and protocol(s) of interest.  A seperate chart will be displayed for each protocol chosen.\n<br>Use highlight with your mouse the time period you want to zoom into or use the pull downs at the top right to select specific time periods.\n<br>Note that by default the dates and time displayed are in your browser’s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n<br>If there is a legend displayed you can click on elements within it to hide or display items, etc.\n<br>Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n<br>The charts are displayed to connect the data points and the null values so drop-outs will look weird.\n",
-        "mode": "html"
-      },
-      "pluginVersion": "8.5.4",
-      "title": "Introduction",
-      "type": "text"
     },
     {
       "collapsed": false,
@@ -138,7 +151,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 1
       },
       "id": 37,
       "panels": [],
@@ -148,7 +161,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -185,7 +198,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 7
+        "y": 2
       },
       "id": 25,
       "links": [],
@@ -205,11 +218,15 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "aggregator": "avg",
           "alias": "Reads",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -253,8 +270,7 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none",
-          "datasource": "InfluxDB"
+          "transform": "none"
         }
       ],
       "title": "Avg. Network Read Throughput",
@@ -263,7 +279,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -300,7 +316,7 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 7
+        "y": 2
       },
       "id": 27,
       "links": [],
@@ -320,14 +336,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "aggregator": "avg",
           "alias": "HDFS Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -381,7 +397,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -418,7 +434,7 @@
         "h": 7,
         "w": 6,
         "x": 12,
-        "y": 7
+        "y": 2
       },
       "id": 26,
       "links": [],
@@ -438,11 +454,15 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "aggregator": "avg",
           "alias": "Writes",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -486,8 +506,7 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none",
-          "datasource": "InfluxDB"
+          "transform": "none"
         }
       ],
       "title": "Avg. Network Write Throughput",
@@ -496,7 +515,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -533,7 +552,7 @@
         "h": 7,
         "w": 6,
         "x": 18,
-        "y": 7
+        "y": 2
       },
       "id": 66,
       "links": [],
@@ -553,14 +572,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "aggregator": "avg",
           "alias": "HDFS Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -621,7 +640,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 9
       },
       "id": 38,
       "panels": [],
@@ -631,7 +650,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "This is the CPU contributions from OneFS.  It is a stacked chart and the totals will be measured along with the contribution from each piece.  Use the hover tooltip to get exact values along the chart.",
       "fieldConfig": {
@@ -697,7 +716,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 10
       },
       "id": 15,
       "links": [],
@@ -724,7 +743,7 @@
           "alias": "intr",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -777,7 +796,7 @@
           "alias": "sys",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -830,7 +849,7 @@
           "alias": "user",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -885,7 +904,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -939,7 +958,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 17
       },
       "id": 34,
       "links": [],
@@ -966,6 +985,10 @@
         {
           "aggregator": "avg",
           "alias": "$3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -1002,8 +1025,7 @@
               }
             ]
           ],
-          "tags": [],
-          "datasource": "InfluxDB"
+          "tags": []
         }
       ],
       "title": "Heat",
@@ -1019,7 +1041,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 28
       },
       "id": 39,
       "panels": [],
@@ -1029,7 +1051,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1070,7 +1092,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1086,7 +1109,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 41
+        "y": 29
       },
       "id": 30,
       "links": [],
@@ -1115,7 +1138,7 @@
           "alias": "$tag_op_name ($tag_class_name)",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1194,7 +1217,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 51
+        "y": 39
       },
       "id": 40,
       "panels": [],
@@ -1204,7 +1227,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1245,7 +1268,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1261,7 +1285,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 52
+        "y": 40
       },
       "id": 3,
       "links": [],
@@ -1284,7 +1308,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -1346,7 +1370,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -1409,7 +1433,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1434,7 +1458,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -1450,40 +1474,87 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "#EAB839",
-                "value": 80
+                "value": 75
               },
               {
-                "color": "red",
+                "color": "semi-dark-red",
                 "value": 90
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "decbytes"
         },
         "overrides": [
           {
             "matcher": {
-              "id": "byName",
-              "options": "Bytes Used"
+              "id": "byFrameRefID",
+              "options": "C"
             },
             "properties": [
               {
-                "id": "custom.pointSize",
-                "value": 10
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "custom.axisLabel",
+                "value": "% Utilization"
+              },
+              {
+                "id": "displayName",
+                "value": "%Utilization"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "percentage",
+                  "steps": [
+                    {
+                      "color": "dark-green",
+                      "value": null
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 75
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 90
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.thresholdsStyle",
+                "value": {
+                  "mode": "off"
+                }
+              },
+              {
+                "id": "custom.axisSoftMin",
+                "value": 0
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 1
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 7,
+        "h": 9,
         "w": 12,
         "x": 0,
-        "y": 59
+        "y": 47
       },
       "id": 4,
       "links": [],
@@ -1498,7 +1569,7 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
@@ -1508,6 +1579,10 @@
           "aggregator": "avg",
           "alias": "Bytes Used",
           "app": "namenode",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
           "errors": {},
@@ -1559,13 +1634,16 @@
               "value": "/^$cluster$/"
             }
           ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "datasource": "InfluxDB"
+          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
         },
         {
           "aggregator": "avg",
           "alias": "Bytes Available",
           "app": "namenode",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
           "errors": {},
@@ -1616,17 +1694,27 @@
               "value": "/^$cluster$/"
             }
           ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "datasource": "InfluxDB"
+          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "$A/$B",
+          "hide": false,
+          "refId": "C",
+          "type": "math"
         }
       ],
       "title": "Capacity Cluster Wide",
+      "transformations": [],
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -1668,7 +1756,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1681,10 +1770,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 9,
         "w": 12,
         "x": 12,
-        "y": 59
+        "y": 47
       },
       "id": 65,
       "links": [],
@@ -1711,7 +1800,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -1761,7 +1850,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -1820,7 +1909,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 66
+        "y": 56
       },
       "id": 42,
       "panels": [],
@@ -1830,7 +1919,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "editable": true,
       "error": false,
@@ -1838,7 +1927,7 @@
         "h": 7,
         "w": 2,
         "x": 0,
-        "y": 67
+        "y": 57
       },
       "id": 19,
       "links": [],
@@ -1846,14 +1935,14 @@
         "content": "# L1 Cache\nOr Level 1 cache is a client side cache that caches file objects as they are accessed on that particular node.",
         "mode": "markdown"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "title": "L1 Cache",
       "type": "text"
     },
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -1866,7 +1955,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red"
+                "color": "red",
+                "value": null
               },
               {
                 "color": "#EAB839",
@@ -1886,7 +1976,7 @@
         "h": 7,
         "w": 5,
         "x": 2,
-        "y": 67
+        "y": 57
       },
       "id": 57,
       "links": [],
@@ -1903,14 +1993,14 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "aggregator": "avg",
           "alias": "L2 Data",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1964,7 +2054,7 @@
           "alias": "L2 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2020,7 +2110,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2062,7 +2152,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2078,7 +2169,7 @@
         "h": 7,
         "w": 17,
         "x": 7,
-        "y": 67
+        "y": 57
       },
       "id": 31,
       "links": [],
@@ -2098,6 +2189,10 @@
         {
           "aggregator": "avg",
           "alias": "L1 Data",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2143,12 +2238,15 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none",
-          "datasource": "InfluxDB"
+          "transform": "none"
         },
         {
           "aggregator": "avg",
           "alias": "L1 Metadata",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2194,8 +2292,7 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none",
-          "datasource": "InfluxDB"
+          "transform": "none"
         }
       ],
       "title": "L1 Cache - $cluster",
@@ -2211,7 +2308,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 74
+        "y": 64
       },
       "id": 43,
       "panels": [],
@@ -2221,7 +2318,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "editable": true,
       "error": false,
@@ -2229,7 +2326,7 @@
         "h": 7,
         "w": 2,
         "x": 0,
-        "y": 75
+        "y": 65
       },
       "id": 20,
       "links": [],
@@ -2237,14 +2334,14 @@
         "content": "# L2 Cache\nLevel 2 cache is a back-end cache that caches file block that reside on that particular node.",
         "mode": "markdown"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "title": "L2 Cache",
       "type": "text"
     },
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2257,7 +2354,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red"
+                "color": "red",
+                "value": null
               },
               {
                 "color": "#EAB839",
@@ -2277,7 +2375,7 @@
         "h": 7,
         "w": 5,
         "x": 2,
-        "y": 75
+        "y": 65
       },
       "id": 56,
       "links": [],
@@ -2294,14 +2392,14 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "aggregator": "avg",
           "alias": "L3 Data",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2355,7 +2453,7 @@
           "alias": "L3 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2409,7 +2507,7 @@
           "alias": "L2 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2465,7 +2563,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2507,7 +2605,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2523,7 +2622,7 @@
         "h": 7,
         "w": 17,
         "x": 7,
-        "y": 75
+        "y": 65
       },
       "id": 17,
       "links": [],
@@ -2543,6 +2642,10 @@
         {
           "aggregator": "avg",
           "alias": "L2 Data",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2588,12 +2691,15 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none",
-          "datasource": "InfluxDB"
+          "transform": "none"
         },
         {
           "aggregator": "avg",
           "alias": "L2 Metadata",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2639,8 +2745,7 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none",
-          "datasource": "InfluxDB"
+          "transform": "none"
         }
       ],
       "title": "L2 Cache - $cluster",
@@ -2656,7 +2761,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 82
+        "y": 72
       },
       "id": 44,
       "panels": [],
@@ -2666,7 +2771,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "editable": true,
       "error": false,
@@ -2674,7 +2779,7 @@
         "h": 7,
         "w": 2,
         "x": 0,
-        "y": 83
+        "y": 73
       },
       "id": 21,
       "links": [],
@@ -2682,14 +2787,14 @@
         "content": "# L3 Cache\nLevel 3 cache is an SSD backed cache that works with L2 Cache and contains blocks and metadata that are local to that particular node.",
         "mode": "markdown"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "title": "L3 Cache",
       "type": "text"
     },
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "",
       "fieldConfig": {
@@ -2731,7 +2836,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2760,7 +2866,7 @@
         "h": 7,
         "w": 22,
         "x": 2,
-        "y": 83
+        "y": 73
       },
       "id": 18,
       "links": [],
@@ -2780,6 +2886,10 @@
         {
           "aggregator": "avg",
           "alias": "L3 Data",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2825,12 +2935,15 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none",
-          "datasource": "InfluxDB"
+          "transform": "none"
         },
         {
           "aggregator": "avg",
           "alias": "L3 Metadata",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2876,8 +2989,7 @@
             }
           ],
           "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none",
-          "datasource": "InfluxDB"
+          "transform": "none"
         }
       ],
       "title": "L3 Cache - $cluster",
@@ -2886,7 +2998,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "description": "THis is a stacked graph so the total R+W is plotted for the overall B/W.  At the same time showing the contributions from each.",
       "fieldConfig": {
@@ -2927,7 +3039,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2943,7 +3056,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 90
+        "y": 80
       },
       "id": 24,
       "links": [],
@@ -2965,7 +3078,7 @@
           "alias": "Writes",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3019,7 +3132,7 @@
           "alias": "Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3080,7 +3193,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 98
+        "y": 88
       },
       "id": 48,
       "panels": [],
@@ -3090,7 +3203,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "InfluxDB"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3131,7 +3244,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -3147,7 +3261,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 99
+        "y": 89
       },
       "id": 59,
       "links": [],
@@ -3168,7 +3282,7 @@
           "alias": "Writes",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3222,7 +3336,7 @@
           "alias": "Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "InfluxDB"
+            "uid": "${DS_INFLUXDB}"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3277,7 +3391,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "",
+  "refresh": "30s",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [
@@ -3291,7 +3405,7 @@
         "current": {},
         "datasource": {
           "type": "influxdb",
-          "uid": "InfluxDB"
+          "uid": "${DS_INFLUXDB}"
         },
         "definition": "",
         "hide": 0,
@@ -3312,9 +3426,9 @@
       },
       {
         "current": {
-          "selected": true,
-          "text": "nfs3",
-          "value": "nfs3"
+          "selected": false,
+          "text": "hdfs",
+          "value": "hdfs"
         },
         "description": "Protocol",
         "hide": 0,
@@ -3329,7 +3443,7 @@
             "value": "nfs"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "nfs3",
             "value": "nfs3"
           },
@@ -3337,6 +3451,11 @@
             "selected": false,
             "text": "nfs4",
             "value": "nfs4"
+          },
+          {
+            "selected": false,
+            "text": "nfsrdma",
+            "value": "nfsrdma"
           },
           {
             "selected": false,
@@ -3359,7 +3478,7 @@
             "value": "smb2"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "hdfs",
             "value": "hdfs"
           },
@@ -3384,7 +3503,7 @@
             "value": "lsass_out"
           }
         ],
-        "query": "nfs,nfs3,nfs4,cifs,smb,smb1,smb2,hdfs,ftp,siq,lsass_in,lsass_out,",
+        "query": "nfs,nfs3,nfs4,nfsrdma,cifs,smb,smb1,smb2,hdfs,ftp,siq,lsass_in,lsass_out,",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
@@ -3392,7 +3511,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -3419,6 +3538,6 @@
   "timezone": "browser",
   "title": "1. PowerScale Cluster Overview",
   "uid": "0aP7FFVWk",
-  "version": 39,
+  "version": 3,
   "weekStart": ""
 }
