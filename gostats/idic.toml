@@ -101,6 +101,7 @@ stats = [
     "node.clientstats.active.jobd",
     "node.clientstats.active.nfs",
     "node.clientstats.active.nfs4",
+    "node.clientstats.active.nfsrdma",
     "node.clientstats.active.nlm",
     "node.clientstats.active.papi",
     "node.clientstats.active.siq",
@@ -123,6 +124,9 @@ stats = [
     "cluster.health",
     "cluster.node.count.all",
     "cluster.node.count.down",
+    "cluster.node.count.diskless",
+    "cluster.node.count.smartfailed",
+    "cluster.node.count.readonly",
 ]
 
 [[statgroup]]
@@ -216,6 +220,7 @@ stats = [
     "cluster.protostats.jobd",
     "cluster.protostats.smb2",
     "cluster.protostats.nfs4",
+    "cluster.protostats.nfsrdma",
     "cluster.protostats.irp",
     "cluster.protostats.lsass_in",
     "cluster.protostats.lsass_out",
@@ -230,6 +235,7 @@ stats = [
     "cluster.protostats.jobd.total",
     "cluster.protostats.smb2.total",
     "cluster.protostats.nfs4.total",
+    "cluster.protostats.nfsrdma.total",
     "cluster.protostats.irp.total",
     "cluster.protostats.lsass_in.total",
     "cluster.protostats.lsass_out.total",
