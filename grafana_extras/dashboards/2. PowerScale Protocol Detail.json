@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "InfluxDB",
-      "label": "isilon metrics",
+      "label": "InfluxDB",
       "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
@@ -21,7 +21,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.5.4"
+      "version": "9.0.2"
     },
     {
       "type": "datasource",
@@ -77,11 +77,13 @@
   "gnetId": 544,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1655232183143,
+  "iteration": 1656602887631,
   "links": [],
   "liveNow": false,
   "panels": [
     {
+      "collapsed": true,
+      "datasource": "InfluxDB",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -89,33 +91,34 @@
         "y": 0
       },
       "id": 46,
+      "panels": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
+          "editable": true,
+          "error": false,
+          "gridPos": {
+            "h": 7,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 18,
+          "isNew": true,
+          "links": [],
+          "options": {
+            "content": "<h3>Usage Notes</h3>\n<br>Use the cluster and other pull downs to select the cluster and protocol(s) of interest.  A seperate chart will be displayed for each protocol chosen.\n<br>Use highlight with your mouse the time period you want to zoom into or use the pull downs at the top right to select specific time periods.\n<br>Note that by default the dates and time displayed are in your browser’s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n<br>If there is a legend displayed you can click on elements within it to hide or display items, etc.\n<br>Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n<br>The charts are displayed to connect the data points and the null values so drop-outs will look weird.\n",
+            "mode": "markdown"
+          },
+          "pluginVersion": "9.0.2",
+          "title": "Welcome to the OneFS Protocol Detail Dashboard for $cluster",
+          "type": "text"
+        }
+      ],
       "title": "Intro",
-      "type": "row",
-      "datasource": "InfluxDB"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "editable": true,
-      "error": false,
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 1
-      },
-      "id": 18,
-      "isNew": true,
-      "links": [],
-      "options": {
-        "content": "<h3>Usage Notes</h3>\n<br>Use the cluster and other pull downs to select the cluster and protocol(s) of interest.  A seperate chart will be displayed for each protocol chosen.\n<br>Use highlight with your mouse the time period you want to zoom into or use the pull downs at the top right to select specific time periods.\n<br>Note that by default the dates and time displayed are in your browser’s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n<br>If there is a legend displayed you can click on elements within it to hide or display items, etc.\n<br>Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n<br>The charts are displayed to connect the data points and the null values so drop-outs will look weird.\n",
-        "mode": "markdown"
-      },
-      "pluginVersion": "8.5.4",
-      "title": "Welcome to the OneFS Protocol Detail Dashboard for $cluster",
-      "type": "text"
+      "type": "row"
     },
     {
       "collapsed": false,
@@ -123,42 +126,12 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 1
       },
       "id": 44,
       "panels": [],
-      "title": "Row title",
+      "title": "QuickLook",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "editable": true,
-      "error": false,
-      "gridPos": {
-        "h": 4,
-        "w": 2,
-        "x": 0,
-        "y": 9
-      },
-      "id": 22,
-      "isNew": true,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "WebUI",
-          "url": "https://$cluster:8080/"
-        }
-      ],
-      "options": {
-        "content": "<a target=\"_blank\" href=\"https://$cluster:8080/\">WebUI  for $cluster</a><br>\n<a href=\"/dashboard/db/isilon-data-insights-cluster-detail\">Cluster detail</a><br>\n<a href=\"/dashboard/db/isilon-data-insights-cluster-summary\">Cluster list</a><br>\n",
-        "mode": "html"
-      },
-      "pluginVersion": "8.5.4",
-      "title": "$cluster",
-      "type": "text"
     },
     {
       "datasource": {
@@ -204,8 +177,8 @@
       "gridPos": {
         "h": 4,
         "w": 2,
-        "x": 2,
-        "y": 9
+        "x": 0,
+        "y": 2
       },
       "id": 13,
       "links": [
@@ -230,9 +203,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -272,8 +249,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "Total Nodes",
@@ -323,8 +299,8 @@
       "gridPos": {
         "h": 4,
         "w": 2,
-        "x": 4,
-        "y": 9
+        "x": 2,
+        "y": 2
       },
       "id": 30,
       "links": [
@@ -349,9 +325,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -391,11 +371,130 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "Nodes Down",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "InfluxDB"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 4,
+        "y": 2
+      },
+      "id": 47,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "WebUI for $cluster",
+          "url": "https://$cluster:8080/"
+        }
+      ],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
+          "dsType": "influxdb",
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "cluster.node.count.readonly",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "cluster",
+              "operator": "=~",
+              "value": "/^$cluster$/"
+            }
+          ]
+        }
+      ],
+      "title": "Read-only Nodes",
       "type": "stat"
     },
     {
@@ -465,7 +564,7 @@
         "h": 4,
         "w": 2,
         "x": 6,
-        "y": 9
+        "y": 2
       },
       "id": 14,
       "links": [
@@ -490,9 +589,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -532,8 +635,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "Alert Status",
@@ -584,7 +686,7 @@
         "h": 4,
         "w": 4,
         "x": 8,
-        "y": 9
+        "y": 2
       },
       "id": 42,
       "links": [
@@ -609,7 +711,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "alias": "Files",
@@ -701,7 +803,7 @@
         "h": 4,
         "w": 3,
         "x": 12,
-        "y": 9
+        "y": 2
       },
       "id": 9,
       "links": [],
@@ -718,9 +820,13 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -762,8 +868,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "Cluster Capacity Utilization",
@@ -807,7 +912,7 @@
         "h": 4,
         "w": 3,
         "x": 15,
-        "y": 9
+        "y": 2
       },
       "id": 8,
       "links": [],
@@ -824,9 +929,13 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -874,8 +983,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "Cluster CPU",
@@ -919,7 +1027,7 @@
         "h": 4,
         "w": 3,
         "x": 18,
-        "y": 9
+        "y": 2
       },
       "id": 23,
       "links": [],
@@ -938,7 +1046,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1037,7 +1145,7 @@
         "h": 4,
         "w": 3,
         "x": 21,
-        "y": 9
+        "y": 2
       },
       "id": 41,
       "links": [],
@@ -1056,7 +1164,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1179,7 +1287,7 @@
         "h": 14,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 6
       },
       "id": 6,
       "links": [],
@@ -1205,6 +1313,10 @@
       "targets": [
         {
           "alias": "Established $3 connections",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -1246,11 +1358,14 @@
               "operator": "=~",
               "value": "/$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         },
         {
           "alias": "Active $3 connections",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -1292,8 +1407,7 @@
               "operator": "=~",
               "value": "/$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "$protocol Client Connections by for $cluster",
@@ -1364,7 +1478,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 20
       },
       "id": 1,
       "links": [],
@@ -1503,7 +1617,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 35
+        "y": 28
       },
       "id": 10,
       "links": [],
@@ -1531,6 +1645,10 @@
       "targets": [
         {
           "alias": "$tag_op_name ($tag_class_name)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -1585,11 +1703,14 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         },
         {
           "alias": "Total",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -1632,8 +1753,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "$protocol Operation Mix for $cluster",
@@ -1701,7 +1821,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 45
+        "y": 38
       },
       "id": 28,
       "links": [],
@@ -1727,6 +1847,10 @@
       "targets": [
         {
           "alias": "Write",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -1768,11 +1892,14 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         },
         {
           "alias": "Read",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -1814,11 +1941,14 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         },
         {
           "alias": "Total",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -1860,8 +1990,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "$protocol Throughput for $cluster",
@@ -1929,7 +2058,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 53
+        "y": 46
       },
       "id": 29,
       "links": [],
@@ -1957,6 +2086,10 @@
       "targets": [
         {
           "alias": "$tag_op_name ($tag_class_name) write",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2010,11 +2143,14 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         },
         {
           "alias": "$tag_op_name ($tag_class_name) read",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2068,8 +2204,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "$protocol Throughput for $cluster",
@@ -2136,7 +2271,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 63
+        "y": 56
       },
       "id": 7,
       "links": [],
@@ -2162,6 +2297,10 @@
       "targets": [
         {
           "alias": "$2 avg",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2203,11 +2342,14 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         },
         {
           "alias": "$2 max",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2249,11 +2391,14 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         },
         {
           "alias": "$2 min",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2295,8 +2440,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "Average Latency for all $protocol Operations for $cluster",
@@ -2347,7 +2491,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2363,7 +2508,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 73
+        "y": 66
       },
       "id": 11,
       "links": [],
@@ -2391,6 +2536,10 @@
       "targets": [
         {
           "alias": "$tag_op_name ($tag_class_name)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2450,8 +2599,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "Average Latency by $protocol Operation for $cluster",
@@ -2502,7 +2650,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2518,7 +2667,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 82
+        "y": 75
       },
       "id": 15,
       "links": [],
@@ -2546,6 +2695,10 @@
       "targets": [
         {
           "alias": "$tag_op_name ($tag_class_name)",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -2605,8 +2758,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "title": "Maximum Latency by $protocol Operation for $cluster",
@@ -2652,10 +2804,10 @@
         "current": {
           "selected": true,
           "text": [
-            "smb2"
+            "hdfs"
           ],
           "value": [
-            "smb2"
+            "hdfs"
           ]
         },
         "hide": 0,
@@ -2686,6 +2838,11 @@
           },
           {
             "selected": false,
+            "text": "nfsrdma",
+            "value": "nfsrdma"
+          },
+          {
+            "selected": false,
             "text": "cifs",
             "value": "cifs"
           },
@@ -2700,12 +2857,12 @@
             "value": "smb1"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "smb2",
             "value": "smb2"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "hdfs",
             "value": "hdfs"
           },
@@ -2740,7 +2897,7 @@
             "value": "papi"
           }
         ],
-        "query": "nfs,nfs3,nfs4,cifs,smb,smb1,smb2,hdfs,ftp,siq,lsass_in,lsass_out,s3,papi",
+        "query": "nfs,nfs3,nfs4,nfsrdma,cifs,smb,smb1,smb2,hdfs,ftp,siq,lsass_in,lsass_out,s3,papi",
         "queryValue": "",
         "refresh": 0,
         "skipUrlSync": false,
@@ -2749,7 +2906,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -2777,6 +2934,6 @@
   "timezone": "browser",
   "title": "2. PowerScale Protocol Detail",
   "uid": "BALIbUWMz",
-  "version": 20,
+  "version": 2,
   "weekStart": ""
 }

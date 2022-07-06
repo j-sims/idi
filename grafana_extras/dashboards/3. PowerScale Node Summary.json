@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "InfluxDB",
-      "label": "isilon metrics",
+      "label": "InfluxDB",
       "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
@@ -15,7 +15,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.5.4"
+      "version": "9.0.2"
     },
     {
       "type": "panel",
@@ -65,7 +65,7 @@
   "gnetId": 2510,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1655231901705,
+  "iteration": 1656602889833,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -133,7 +133,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -283,7 +283,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -294,6 +294,10 @@
       "targets": [
         {
           "alias": "Node $tag_node",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "InfluxDB"
+          },
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -346,8 +350,7 @@
               "operator": "=~",
               "value": "/^$node$/"
             }
-          ],
-          "datasource": "InfluxDB"
+          ]
         }
       ],
       "thresholds": [],
@@ -427,7 +430,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -575,7 +578,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -722,7 +725,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -870,7 +873,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1038,7 +1041,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1182,7 +1185,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1343,7 +1346,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1487,7 +1490,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1653,7 +1656,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.4",
+      "pluginVersion": "9.0.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2019,7 +2022,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "",
+  "refresh": "30s",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [
@@ -2078,7 +2081,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -2101,6 +2104,6 @@
   "timezone": "browser",
   "title": "3. PowerScale Node Summary",
   "uid": "69XZKF4Zz",
-  "version": 37,
+  "version": 2,
   "weekStart": ""
 }
