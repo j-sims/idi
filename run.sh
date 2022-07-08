@@ -1,7 +1,7 @@
 #!/bin/bash
 LOGFILE="isidatainsights.log"
 usage() {
-    echo "$0 [clean|build|start|stop|status|upload]"
+    echo "$0 [clean|build|start|stop|status|upload|exportdb]"
     exit 0
 }
 
@@ -112,12 +112,12 @@ case $1 in
         docker-compose down | tee -a $LOGFILE;;
     status)
         docker-compose ps | tee -a $LOGFILE;;
+    exportdb)
+        echo "exportdb"
+        docker run --rm -ti --network isidatainsights -v `pwd`/backups:/backups isidatainsights-client;;
     upload)
         echo "upload"
-        docker run --rm -ti --network isidatainsights isidatainsights-client;;
-    dashboardprep)
-        cd /docker/isidatainsights/grafana_extras/dashboards
-        ls | while read filename; do sed -i 's/\${DS_ISILON_METRICS}/InfluxDB/g' "$filename"; done;;
+        docker run --rm -ti --network isidatainsights -e UPLOAD=true -v `pwd`/backups:/backups isidatainsights-client;;
     *)
         usage;;
 esac

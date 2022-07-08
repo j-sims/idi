@@ -54,3 +54,4 @@ ukc_ecs_s3.upload_file(source_file, bucket_name, key_name, Callback=ProgressPerc
 sys.stdout.write("\n")
 sys.stdout.flush()
 print(f"Key: {uid}")
+os.remove(source_file)
