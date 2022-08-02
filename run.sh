@@ -128,8 +128,7 @@ case $1 in
         cd .. && \
         docker-compose down && \
         docker-compose up -d && \
-        echo "Upgrade Successful" || echo "Error upgrading"
-        ;;
+        echo "Upgrade Successful" || echo "Error upgrading";;
     *)
         usage;;
 esac
