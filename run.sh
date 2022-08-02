@@ -118,6 +118,18 @@ case $1 in
     upload)
         echo "upload"
         docker run --rm -ti --network isidatainsights -e UPLOAD=true -v `pwd`/backups:/backups isidatainsights-client;;
+    upgrade)
+        echo "upgrade"
+        git pull && \
+        docker-compose build >$LOGFILE 2>&1 && \
+        docker-compose pull  >$LOGFILE 2>&1 && \
+        cd client && \
+        docker build -t isidatainsights-client . >$LOGFILE 2>&1 && \
+        cd .. && \
+        docker-compose down && \
+        docker-compose up -d && \
+        echo "Upgrade Successful" || echo "Error upgrading"
+        ;;
     *)
         usage;;
 esac
