@@ -92,12 +92,6 @@ cd idi/
 bash run.sh build
 ```
 
-##### Upgrade idi
-The updgrade process will shutdown idi temporarily, but all data should be retained and the process will restart idi when complete.
-```
-bash run.sh upgrade
-```
-
 ---
 ## Detailed Instructions for Ubuntu Linux
 These steps provide details how building and Ubuntu Linux 22.04 VM and the docker environment needed to run idi
@@ -145,7 +139,11 @@ bash run.sh build
 # Administration Info
 Below is info on the build to ease the administration of the Isilon Data Insights environment
 ## Upgrading Idi
-stay tuned!
+The updgrade process will shutdown idi temporarily, but all data should be retained and the process will restart idi when complete.
+```
+bash run.sh upgrade
+```
+
 ## Backing up the database
 stay tuned!
 ## Adding more clusters
