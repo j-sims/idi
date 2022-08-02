@@ -1,6 +1,7 @@
 #!/bin/bash
 LOGFILE="isidatainsights.log"
 usage() {
+    checkupgrade
     echo "$0 [clean|build|start|stop|status|upload|exportdb]"
     exit 0
 }
@@ -9,6 +10,24 @@ die () {
     echo $1
     tail -n 10 $LOGFILE
     exit 1
+}
+
+checkupgrade() {
+    GIT_VERSION=`curl -s https://raw.githubusercontent.com/j-sims/idi/main/build_number`
+    LOCAL_VERSION=`cat build_number`
+    if [[ $GIT_VERSION > $LOCAL_VERSION ]]
+    then
+        echo ""
+        echo "****************************************************************"
+        echo "A new version of Isilon Data Insights is available."
+        echo ""
+        echo "To upgrade to the new version run:"
+        echo ""
+        echo "bash run.sh upgrade"
+        echo ""
+        echo "****************************************************************"
+        echo ""
+    fi
 }
 
 getclusters() {
@@ -107,16 +126,20 @@ case $1 in
         ;;
 
     start)
+        checkupgrade    
         start
         ;;
     stop)
+        checkupgrade
         docker-compose down | tee -a $LOGFILE;;
     status)
+        checkupgrade
         docker-compose ps | tee -a $LOGFILE;;
     exportdb)
         echo "exportdb"
         docker run --rm -ti --network isidatainsights -v `pwd`/backups:/backups isidatainsights-client;;
     upload)
+        checkupgrade
         echo "upload"
         docker run --rm -ti --network isidatainsights -e UPLOAD=true -v `pwd`/backups:/backups isidatainsights-client;;
     upgrade)
