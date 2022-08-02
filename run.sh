@@ -94,7 +94,8 @@ case $1 in
         fi
             ;;
     build)
-        echo "starting container build, may take a few minutes..."
+        echo "starting container build, may take a few minutes."
+        echo "details logged in $LOGFILE"
         docker-compose build >$LOGFILE 2>&1 && \
         docker-compose pull  >$LOGFILE 2>&1 && \
         cd client && \
