@@ -145,7 +145,5 @@ The updgrade process will shutdown idi temporarily, but all data should be retai
 bash run.sh upgrade
 ```
 
-## Backing up the database
-stay tuned!
-## Adding more clusters
-stay tuned!
+## Known Issues
+None
