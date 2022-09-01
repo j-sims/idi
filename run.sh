@@ -141,7 +141,7 @@ case $1 in
     upload)
         checkupgrade
         echo "upload"
-        docker run --rm -ti --network isidatainsights -e VERSION=`cat build_number` -e UPLOAD=true -v `pwd`/backups:/backups isidatainsights-client;;
+        docker run --rm -ti --network isidatainsights -e UPLOAD=true -v `pwd`/backups:/backups isidatainsights-client;;
     upgrade)
         echo "upgrade"
         git pull && \
