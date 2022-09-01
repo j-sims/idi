@@ -163,6 +163,16 @@ stats = [
     "node.memory.used",
     "node.memory.free",
     "node.open.files",
+    "node.cpu.idle.avg",             
+    "node.cpu.intr.avg",             
+    "node.cpu.nice.avg",             
+    "node.cpu.user.avg",             
+    "node.cpu.sys.avg",              
+    "node.cpu.idle.max",             
+    "node.cpu.intr.max",             
+    "node.cpu.nice.max",             
+    "node.cpu.user.max",             
+    "node.cpu.sys.max",        
 ]
 
 [[statgroup]]
