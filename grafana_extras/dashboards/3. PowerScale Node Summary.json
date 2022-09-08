@@ -1,7 +1,7 @@
 {
   "__inputs": [
     {
-      "name": "DS_INFLUXDB",
+      "name": "InfluxDB",
       "label": "InfluxDB",
       "description": "",
       "type": "datasource",
@@ -90,7 +90,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "Maximum value of sys during the interval",
       "fieldConfig": {
@@ -149,7 +149,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "groupBy": [
             {
@@ -211,7 +211,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "Collection of the CPU based stats",
       "fieldConfig": {
@@ -351,7 +351,7 @@
           "alias": "idle",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "groupBy": [
             {
@@ -410,7 +410,7 @@
           "alias": "intr",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "groupBy": [
             {
@@ -470,7 +470,7 @@
           "alias": "nice",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "groupBy": [
             {
@@ -530,7 +530,7 @@
           "alias": "sys",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "groupBy": [
             {
@@ -590,7 +590,7 @@
           "alias": "user",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "groupBy": [
             {
@@ -757,7 +757,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -820,7 +820,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -906,7 +906,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1056,7 +1056,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1203,7 +1203,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1351,7 +1351,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1499,7 +1499,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1670,7 +1670,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1818,7 +1818,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1979,7 +1979,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2123,7 +2123,7 @@
           "alias": "Node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2260,7 +2260,7 @@
           "alias": "Incoming node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2320,7 +2320,7 @@
           "alias": "Outgoing node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2494,7 +2494,7 @@
           "alias": "Incoming node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2554,7 +2554,7 @@
           "alias": "Outgoing node $tag_node",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2629,7 +2629,7 @@
         "current": {},
         "datasource": {
           "type": "influxdb",
-          "uid": "${DS_INFLUXDB}"
+          "uid": "InfluxDB"
         },
         "definition": "",
         "hide": 0,
@@ -2652,7 +2652,7 @@
         "current": {},
         "datasource": {
           "type": "influxdb",
-          "uid": "${DS_INFLUXDB}"
+          "uid": "InfluxDB"
         },
         "definition": "",
         "hide": 0,

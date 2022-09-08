@@ -1,7 +1,7 @@
 {
   "__inputs": [
     {
-      "name": "DS_INFLUXDB",
+      "name": "InfluxDB",
       "label": "InfluxDB",
       "description": "",
       "type": "datasource",
@@ -118,7 +118,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "description": "",
           "gridPos": {
@@ -156,7 +156,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -228,7 +228,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -278,7 +278,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -350,7 +350,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -401,7 +401,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -491,7 +491,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -541,7 +541,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -613,7 +613,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -664,7 +664,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -732,7 +732,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -782,7 +782,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "",
       "fieldConfig": {
@@ -851,7 +851,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -902,7 +902,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -959,7 +959,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1017,7 +1017,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -1074,7 +1074,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1126,7 +1126,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -1199,7 +1199,7 @@
           "alias": "Inline",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1250,7 +1250,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -1323,7 +1323,7 @@
           "alias": "Compression",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1391,7 +1391,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -1455,7 +1455,7 @@
           "alias": "Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1509,7 +1509,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -1573,7 +1573,7 @@
           "alias": "Writes",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1627,7 +1627,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -1694,7 +1694,7 @@
           "alias": "HDFS Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1748,7 +1748,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -1815,7 +1815,7 @@
           "alias": "HDFS Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -1886,7 +1886,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "This is the CPU contributions from OneFS.  It is a stacked chart and the totals will be measured along with the contribution from each piece.  Use the hover tooltip to get exact values along the chart.",
       "fieldConfig": {
@@ -1982,7 +1982,7 @@
           "alias": "intr",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2035,7 +2035,7 @@
           "alias": "sys",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2088,7 +2088,7 @@
           "alias": "user",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2143,7 +2143,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -2229,7 +2229,7 @@
           "alias": "$3",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2293,7 +2293,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -2383,7 +2383,7 @@
           "alias": "$tag_op_name ($tag_class_name)",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -2472,7 +2472,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "Writes are plotted on negative y-axis to contrast with reads",
       "fieldConfig": {
@@ -2570,7 +2570,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -2620,7 +2620,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -2677,7 +2677,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -2828,7 +2828,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -2890,7 +2890,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -2963,7 +2963,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "",
       "fieldConfig": {
@@ -3052,7 +3052,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -3102,7 +3102,7 @@
           "app": "namenode",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "downsampleAggregator": "avg",
           "dsType": "influxdb",
@@ -3171,7 +3171,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "editable": true,
       "error": false,
@@ -3194,7 +3194,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "",
       "fieldConfig": {
@@ -3252,7 +3252,7 @@
           "alias": "L2 Data",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3306,7 +3306,7 @@
           "alias": "L2 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3362,7 +3362,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "",
       "fieldConfig": {
@@ -3446,7 +3446,7 @@
           "alias": "L1 Data",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3500,7 +3500,7 @@
           "alias": "L1 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3573,7 +3573,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "editable": true,
       "error": false,
@@ -3596,7 +3596,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "",
       "fieldConfig": {
@@ -3654,7 +3654,7 @@
           "alias": "L3 Data",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3708,7 +3708,7 @@
           "alias": "L3 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3762,7 +3762,7 @@
           "alias": "L2 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3818,7 +3818,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "",
       "fieldConfig": {
@@ -3902,7 +3902,7 @@
           "alias": "L2 Data",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -3956,7 +3956,7 @@
           "alias": "L2 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -4029,7 +4029,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "editable": true,
       "error": false,
@@ -4052,7 +4052,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "",
       "fieldConfig": {
@@ -4149,7 +4149,7 @@
           "alias": "L3 Data",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -4203,7 +4203,7 @@
           "alias": "L3 Metadata",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -4259,7 +4259,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "description": "THis is a stacked graph so the total R+W is plotted for the overall B/W.  At the same time showing the contributions from each.",
       "fieldConfig": {
@@ -4342,7 +4342,7 @@
           "alias": "Writes",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -4396,7 +4396,7 @@
           "alias": "Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -4467,7 +4467,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "InfluxDB"
       },
       "fieldConfig": {
         "defaults": {
@@ -4549,7 +4549,7 @@
           "alias": "Writes",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -4603,7 +4603,7 @@
           "alias": "Reads",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "InfluxDB"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -4672,7 +4672,7 @@
         "current": {},
         "datasource": {
           "type": "influxdb",
-          "uid": "${DS_INFLUXDB}"
+          "uid": "InfluxDB"
         },
         "definition": "",
         "hide": 0,
