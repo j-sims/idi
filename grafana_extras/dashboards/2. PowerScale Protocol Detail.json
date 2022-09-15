@@ -3,37 +3,25 @@
     {
       "name": "InfluxDB",
       "label": "InfluxDB",
-      "description": "",
+      "description": "Default Influx Database for Isilon Data Insights",
       "type": "datasource",
       "pluginId": "influxdb",
       "pluginName": "InfluxDB"
     }
   ],
-  "__elements": [],
+  "__elements": {},
   "__requires": [
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
     {
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "9.0.2"
+      "version": "9.1.1"
     },
     {
       "type": "datasource",
       "id": "influxdb",
       "name": "InfluxDB",
       "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
     },
     {
       "type": "panel",
@@ -77,13 +65,15 @@
   "gnetId": 544,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1656602887631,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "collapsed": true,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "InfluxDB"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -109,7 +99,7 @@
           "isNew": true,
           "links": [],
           "options": {
-            "content": "<h3>Usage Notes</h3>\n<br>Use the cluster and other pull downs to select the cluster and protocol(s) of interest.  A seperate chart will be displayed for each protocol chosen.\n<br>Use highlight with your mouse the time period you want to zoom into or use the pull downs at the top right to select specific time periods.\n<br>Note that by default the dates and time displayed are in your browser’s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n<br>If there is a legend displayed you can click on elements within it to hide or display items, etc.\n<br>Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n<br>The charts are displayed to connect the data points and the null values so drop-outs will look weird.\n",
+            "content": "<h3>Usage Notes</h3>\n<br>Use the cluster and other pull downs to select the cluster and protocol(s) of interest.  A seperate chart will be displayed for each protocol chosen.\n<br>Use highlight with your mouse the time period you want to zoom into or use the pull downs at the top right to select specific time periods.\n<br>Note that by default the dates and time displayed are in your browser\u2019s time zone, not the source cluster.   You can get it to display in UTC via the settings under the little gear symbol at the top of the page.\n<br>If there is a legend displayed you can click on elements within it to hide or display items, etc.\n<br>Click on the title of the chart and then the horizontal bars icon at the left to show/hide the legend and get a CSV export of the data.\n<br>The charts are displayed to connect the data points and the null values so drop-outs will look weird.\n",
             "mode": "markdown"
           },
           "pluginVersion": "9.0.2",
@@ -130,1100 +120,8 @@
       },
       "id": 44,
       "panels": [],
-      "title": "QuickLook",
+      "title": "Protocols",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "": {
-                  "text": ""
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 1
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 2
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 2,
-        "x": 0,
-        "y": 2
-      },
-      "id": 13,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "WebUI for $cluster",
-          "url": "https://$cluster:8080/"
-        }
-      ],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.node.count.all",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "Total Nodes",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "": {
-                  "text": ""
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 1
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 2
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 2,
-        "x": 2,
-        "y": 2
-      },
-      "id": 30,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "WebUI for $cluster",
-          "url": "https://$cluster:8080/"
-        }
-      ],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.node.count.down",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "Nodes Down",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "": {
-                  "text": ""
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 1
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 2,
-        "x": 4,
-        "y": 2
-      },
-      "id": 47,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "WebUI for $cluster",
-          "url": "https://$cluster:8080/"
-        }
-      ],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.node.count.readonly",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "Read-only Nodes",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "from": 0,
-                "result": {
-                  "text": "Healthy"
-                },
-                "to": 0
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 0.0001,
-                "result": {
-                  "text": "Attention"
-                },
-                "to": 1.999
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 2,
-                "result": {
-                  "text": "Down"
-                },
-                "to": 5
-              },
-              "type": "range"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 0.0001
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 2
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 2,
-        "x": 6,
-        "y": 2
-      },
-      "id": 14,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "WebUI for $cluster",
-          "url": "https://$cluster:8080/"
-        }
-      ],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.health",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "Alert Status",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "": {
-                  "text": ""
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 1
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 2
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 8,
-        "y": 2
-      },
-      "id": 42,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "WebUI for $cluster",
-          "url": "https://$cluster:8080/"
-        }
-      ],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "alias": "Files",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "node.open.files",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "Total Open files",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "max": 100,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 80
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 90
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 12,
-        "y": 2
-      },
-      "id": 9,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ifs.percent.used",
-          "policy": "default",
-          "query": "SELECT 100.0 - mean(\"value\") FROM \"ifs.percent.avail\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "Cluster Capacity Utilization",
-      "type": "gauge"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 0.8
-              },
-              {
-                "color": "rgba(245, 54, 54, 0.9)",
-                "value": 0.95
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 15,
-        "y": 2
-      },
-      "id": 8,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "cluster.cpu.idle.avg",
-          "policy": "default",
-          "query": "SELECT 1.0 - mean(\"value\")  / 1000 FROM \"cluster.cpu.idle.avg\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  " / 1000"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "Cluster CPU",
-      "type": "gauge"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              }
-            ]
-          },
-          "unit": "ops"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 18,
-        "y": 2
-      },
-      "id": 23,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ifs.ops.in.rate",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT max(\"time_avg\") /1000 FROM \"cluster.protostats.$protocol.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": false,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "/1000"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "/ifs - writes",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "InfluxDB"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
-              }
-            ]
-          },
-          "unit": "ops"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 21,
-        "y": 2
-      },
-      "id": 41,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "InfluxDB"
-          },
-          "dsType": "influxdb",
-          "groupBy": [
-            {
-              "params": [
-                "$interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "ifs.ops.out.rate",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT max(\"time_avg\") /1000 FROM \"cluster.protostats.$protocol.total\" WHERE \"cluster\" =~ /^$cluster$/ AND $timeFilter GROUP BY time($interval) fill(null)",
-          "rawQuery": false,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "max"
-              },
-              {
-                "params": [
-                  "/1000"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "cluster",
-              "operator": "=~",
-              "value": "/^$cluster$/"
-            }
-          ]
-        }
-      ],
-      "title": "/ifs - reads",
-      "type": "stat"
     },
     {
       "datasource": {
@@ -1236,6 +134,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "Connections",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -1287,7 +187,7 @@
         "h": 14,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 2
       },
       "id": 6,
       "links": [],
@@ -1300,7 +200,8 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -1425,6 +326,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "op/s",
             "axisPlacement": "auto",
             "axisSoftMax": 0,
@@ -1478,7 +381,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 58
       },
       "id": 1,
       "links": [],
@@ -1491,7 +394,8 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -1567,6 +471,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -1617,7 +523,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 28
+        "y": 90
       },
       "id": 10,
       "links": [],
@@ -1631,6 +537,7 @@
           ],
           "displayMode": "table",
           "placement": "bottom",
+          "showLegend": true,
           "sortBy": "Last *",
           "sortDesc": true
         },
@@ -1770,6 +677,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -1821,7 +730,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 38
+        "y": 130
       },
       "id": 28,
       "links": [],
@@ -1834,7 +743,8 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -2007,6 +917,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -2058,7 +970,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 46
+        "y": 162
       },
       "id": 29,
       "links": [],
@@ -2072,6 +984,7 @@
           ],
           "displayMode": "table",
           "placement": "bottom",
+          "showLegend": true,
           "sortBy": "Last *",
           "sortDesc": true
         },
@@ -2221,6 +1134,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "Latency",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -2263,7 +1178,7 @@
               }
             ]
           },
-          "unit": "µs"
+          "unit": "\u00b5s"
         },
         "overrides": []
       },
@@ -2271,7 +1186,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 56
+        "y": 202
       },
       "id": 7,
       "links": [],
@@ -2284,7 +1199,8 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -2458,6 +1374,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -2508,7 +1426,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 66
+        "y": 242
       },
       "id": 11,
       "links": [],
@@ -2522,6 +1440,7 @@
           ],
           "displayMode": "table",
           "placement": "bottom",
+          "showLegend": true,
           "sortBy": "Last *",
           "sortDesc": true
         },
@@ -2617,6 +1536,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -2667,7 +1588,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 75
+        "y": 278
       },
       "id": 15,
       "links": [],
@@ -2681,6 +1602,7 @@
           ],
           "displayMode": "table",
           "placement": "bottom",
+          "showLegend": true,
           "sortBy": "Last *",
           "sortDesc": true
         },
@@ -2766,11 +1688,10 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 36,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [
     "isilon",
-    "idi-v1",
     "PowerScale"
   ],
   "templating": {
@@ -2804,10 +1725,16 @@
         "current": {
           "selected": true,
           "text": [
-            "hdfs"
+            "nfs4",
+            "nfs3",
+            "smb2",
+            "smb1"
           ],
           "value": [
-            "hdfs"
+            "nfs4",
+            "nfs3",
+            "smb2",
+            "smb1"
           ]
         },
         "hide": 0,
@@ -2822,17 +1749,12 @@
             "value": "$__all"
           },
           {
-            "selected": false,
-            "text": "nfs",
-            "value": "nfs"
-          },
-          {
-            "selected": false,
+            "selected": true,
             "text": "nfs3",
             "value": "nfs3"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "nfs4",
             "value": "nfs4"
           },
@@ -2842,27 +1764,17 @@
             "value": "nfsrdma"
           },
           {
-            "selected": false,
-            "text": "cifs",
-            "value": "cifs"
-          },
-          {
-            "selected": false,
-            "text": "smb",
-            "value": "smb"
-          },
-          {
-            "selected": false,
+            "selected": true,
             "text": "smb1",
             "value": "smb1"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "smb2",
             "value": "smb2"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "hdfs",
             "value": "hdfs"
           },
@@ -2897,7 +1809,7 @@
             "value": "papi"
           }
         ],
-        "query": "nfs,nfs3,nfs4,nfsrdma,cifs,smb,smb1,smb2,hdfs,ftp,siq,lsass_in,lsass_out,s3,papi",
+        "query": "nfs3,nfs4,nfsrdma,smb1,smb2,hdfs,ftp,siq,lsass_in,lsass_out,s3,papi",
         "queryValue": "",
         "refresh": 0,
         "skipUrlSync": false,
@@ -2906,18 +1818,17 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-90d",
     "to": "now"
   },
   "timepicker": {
     "now": true,
     "refresh_intervals": [
+      "10s",
       "30s",
       "1m",
-      "2m",
       "5m",
-      "30m",
-      "1h"
+      "10m"
     ],
     "time_options": [
       "5m",
@@ -2934,6 +1845,7 @@
   "timezone": "browser",
   "title": "2. PowerScale Protocol Detail",
   "uid": "BALIbUWMz",
-  "version": 2,
-  "weekStart": ""
+  "version": 3,
+  "weekStart": "",
+  "Refresh": "10s"
 }
