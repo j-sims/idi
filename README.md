@@ -139,6 +139,10 @@ bash run.sh build
 # Administration Info
 Below is info on the build to ease the administration of the Isilon Data Insights environment
 
+## Status (Check for Upgrades)
+To check the status of idi (see if running) and to check for code updates run the following:
+```bash run.sh status```
+
 ## Upgrading Idi
 The updgrade process will shutdown idi temporarily, but all data should be retained and the process will restart idi when complete.
 ```
