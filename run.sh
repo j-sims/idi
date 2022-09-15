@@ -13,8 +13,8 @@ die () {
 }
 
 checkupgrade() {
-    GIT_VERSION=`curl -s https://raw.githubusercontent.com/j-sims/idi/main/build_number`
-    LOCAL_VERSION=`cat build_number`
+    GIT_VERSION=$(curl -s https://raw.githubusercontent.com/j-sims/idi/main/build_number)
+    LOCAL_VERSION=$(cat build_number)
     if [[ $GIT_VERSION > $LOCAL_VERSION ]]
     then
         echo ""
@@ -33,7 +33,7 @@ checkupgrade() {
 getclusters() {
     [[ -f clusters.toml ]] && die "clusters.toml exists, aborting" && touch clusters.toml
     PROMPT="true"
-    while $PROMPT == "true"
+    while [ $PROMPT == "true" ]
     do
         echo ""
         echo "Enter then cluster DNS name or IP address"
@@ -107,6 +107,7 @@ case $1 in
             docker rmi grafana/grafana-oss >$LOGFILE 2>&1
             docker rmi influxdb:1.8 >$LOGFILE 2>&1
             docker rmi isidatainsights-client >$LOGFILE 2>&1
+            docker rmi ubuntu:22.04 >$LOGFILE 2>&1
             rm -f .firstrun
             rm -f $LOGFILE
             echo "Cleanup Complete"
@@ -145,14 +146,14 @@ case $1 in
     upgrade)
         echo "upgrade"
         git pull && \
-        docker-compose build >$LOGFILE 2>&1 && \
-        docker-compose pull  >$LOGFILE 2>&1 && \
+        docker-compose build >>$LOGFILE 2>&1 && \
+        docker-compose pull  >>$LOGFILE 2>&1 && \
         cd client && \
-        docker build -t isidatainsights-client . >$LOGFILE 2>&1 && \
+        docker build -t isidatainsights-client . >>$LOGFILE 2>&1 && \
         cd .. && \
         docker-compose down && \
         docker-compose up -d && \
-        echo "Upgrade Successful" || echo "Error upgrading";;
+        echo "Upgrade Successful" || echo "Error upgrading"; tail -n 20 $LOGFILE;;
     *)
         usage;;
 esac

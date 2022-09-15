@@ -146,4 +146,4 @@ bash run.sh upgrade
 ```
 
 ## Known Issues
-None
+Security teams that insert a custom root CA for https packet inspection onto clients will need to add the dockerhost as an exception for the duration of the build process otherwise apt, dnf and docker pull will break.
