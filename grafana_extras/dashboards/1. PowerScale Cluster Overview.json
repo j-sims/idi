@@ -1491,9 +1491,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         }
       ],
       "title": "Avg. Network Read Throughput",
@@ -1609,9 +1607,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         }
       ],
       "title": "Avg. Network Write Throughput",
@@ -1731,8 +1727,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         }
       ],
       "title": "Max $proto Read Throughput",
@@ -1852,8 +1847,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         }
       ],
       "title": "Max $proto Write Throughput",
@@ -2020,8 +2014,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         },
         {
           "aggregator": "avg",
@@ -2073,8 +2066,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         },
         {
           "aggregator": "avg",
@@ -2126,8 +2118,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         }
       ],
       "title": "Cluster CPU Breakdown - $cluster",
@@ -2438,8 +2429,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         }
       ],
       "title": "Max lsass_out Latency",
@@ -2604,7 +2594,6 @@
               "value": "/^$cluster$/"
             }
           ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
           "transform": "rate"
         },
         {
@@ -2660,7 +2649,6 @@
               "value": "/^$cluster$/"
             }
           ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
           "transform": "rate"
         }
       ],
@@ -2874,8 +2862,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         },
         {
           "aggregator": "avg",
@@ -2935,13 +2922,12 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         },
         {
           "datasource": {
             "type": "__expr__",
-            "uid": "${DS_EXPRESSION}"
+            "uid": "InfluxDB"
           },
           "expression": "$A/$B",
           "hide": false,
@@ -3086,8 +3072,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         },
         {
           "aggregator": "avg",
@@ -3137,8 +3122,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com"
+          ]
         }
       ],
       "title": "Cluster Data Reduction - $cluster",
@@ -3290,9 +3274,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         },
         {
           "aggregator": "avg",
@@ -3344,9 +3326,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         }
       ],
       "title": "L1 Prefetch Cache - $cluster",
@@ -3484,9 +3464,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         },
         {
           "aggregator": "avg",
@@ -3538,9 +3516,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         }
       ],
       "title": "L1 Cache - $cluster",
@@ -3692,9 +3668,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         },
         {
           "aggregator": "avg",
@@ -3746,9 +3720,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         },
         {
           "aggregator": "avg",
@@ -3800,9 +3772,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         }
       ],
       "title": "L2 Prefetch Cache - $cluster",
@@ -3940,9 +3910,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         },
         {
           "aggregator": "avg",
@@ -3994,9 +3962,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         }
       ],
       "title": "L2 Cache - $cluster",
@@ -4187,9 +4153,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         },
         {
           "aggregator": "avg",
@@ -4241,9 +4205,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         }
       ],
       "title": "L3 Cache - $cluster",
@@ -4380,9 +4342,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         },
         {
           "aggregator": "avg",
@@ -4432,9 +4392,7 @@
               "operator": "=~",
               "value": "/^$cluster$/"
             }
-          ],
-          "templatedHost": "nr-hdp.hdfs.demo.west.isilon.com",
-          "transform": "none"
+          ]
         }
       ],
       "title": "Disk IO for $cluster",
