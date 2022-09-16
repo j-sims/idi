@@ -21,6 +21,7 @@ services:
     volumes:
       - $PWD/grafana_extras/provisioning:/etc/grafana/provisioning
       - $PWD/grafana_extras/dashboards:/var/lib/grafana/dashboards
+      - $PWD/grafana_extras/grafana.db:/var/lib/grafana/grafana.db
     networks:
       - isidatainsights  
   gostats:

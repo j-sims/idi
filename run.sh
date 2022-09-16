@@ -12,6 +12,15 @@ die () {
     exit 1
 }
 
+creategrafanadb() {
+    docker run --rm -d --name=tempgrafana grafana/grafana-oss && \
+    sleep 5 && \
+    docker cp tempgrafana:/var/lib/grafana/grafana.db grafana_extras/grafana.db && \
+    docker stop tempgrafana && \
+    chown 472:0 grafana_extras/grafana.db &&
+    ls -la grafana_extras/grafana.db
+    }
+
 checkupgrade() {
     GIT_VERSION=$(curl -s https://raw.githubusercontent.com/j-sims/idi/main/build_number)
     LOCAL_VERSION=$(cat build_number)
@@ -101,6 +110,7 @@ case $1 in
             docker-compose down >$LOGFILE 2>&1
             rm -rf backups/*  >$LOGFILE 2>&1
             rm -rf influxdb/data/*  >$LOGFILE 2>&1
+            rm -rf grafana_extras/grafana.db  >$LOGFILE 2>&1
             rm -rf clusters.toml  >$LOGFILE 2>&1
             docker images | grep $(basename `pwd`) | awk '{print$3}' | xargs docker rmi >$LOGFILE 2>&1
             docker rmi golang >$LOGFILE 2>&1
@@ -122,6 +132,7 @@ case $1 in
         docker build -t isidatainsights-client . >$LOGFILE 2>&1 && \
         cd .. && \
         echo "Completed building containers..." && \
+        [[ -f grafana_extras/grafana.db ]] || creategrafanadb >>$LOGFILE 2>&1 && \
         getclusters && \
         start || die "Error, checking logs"
         ;;
