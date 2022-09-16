@@ -2,7 +2,7 @@
 LOGFILE="isidatainsights.log"
 usage() {
     checkupgrade
-    echo "$0 [clean|build|start|stop|status|upload|exportdb]"
+    echo "$0 [clean|build|start|stop|status|upload|exportdb|logs]"
     exit 0
 }
 
@@ -154,6 +154,11 @@ case $1 in
         checkupgrade
         echo "upload"
         docker run --rm -ti --network isidatainsights -e UPLOAD=true -v $(pwd)/backups:/backups isidatainsights-client;;
+    logs)
+        echo "#####################################################################"
+        echo "# tailing logs, CTRL+C to exit                                      #"
+        echo "#####################################################################"
+        docker-compose logs -f --tail=5;;
     upgrade)
         echo "upgrade"
         git pull && \
