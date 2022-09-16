@@ -149,11 +149,11 @@ case $1 in
         docker-compose ps | tee -a $LOGFILE;;
     exportdb)
         echo "exportdb"
-        docker run --rm -ti --network isidatainsights -v `pwd`/backups:/backups isidatainsights-client;;
+        docker run --rm -ti --network isidatainsights -v $(pwd)/backups:/backups isidatainsights-client;;
     upload)
         checkupgrade
         echo "upload"
-        docker run --rm -ti --network isidatainsights -e UPLOAD=true -v `pwd`/backups:/backups isidatainsights-client;;
+        docker run --rm -ti --network isidatainsights -e UPLOAD=true -v $(pwd)/backups:/backups isidatainsights-client;;
     upgrade)
         echo "upgrade"
         git pull && \
