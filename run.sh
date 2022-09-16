@@ -167,6 +167,7 @@ case $1 in
         cd client && \
         docker build -t isidatainsights-client . >>$LOGFILE 2>&1 && \
         cd .. && \
+        [[ -f grafana_extras/grafana.db ]] || creategrafanadb >>$LOGFILE 2>&1 && \
         docker-compose down && \
         docker-compose up -d && \
         echo "Upgrade Successful" || echo "Error upgrading"; tail -n 20 $LOGFILE;;
