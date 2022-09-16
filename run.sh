@@ -107,17 +107,17 @@ case $1 in
         read ACTION
         if [[ "$ACTION" == "DELETE" ]]
         then
-            docker-compose down >$LOGFILE 2>&1
-            rm -rf backups/*  >$LOGFILE 2>&1
-            rm -rf influxdb/data/*  >$LOGFILE 2>&1
-            rm -rf grafana_extras/grafana.db  >$LOGFILE 2>&1
-            rm -rf clusters.toml  >$LOGFILE 2>&1
-            docker images | grep $(basename `pwd`) | awk '{print$3}' | xargs docker rmi >$LOGFILE 2>&1
-            docker rmi golang >$LOGFILE 2>&1
-            docker rmi grafana/grafana-oss >$LOGFILE 2>&1
-            docker rmi influxdb:1.8 >$LOGFILE 2>&1
-            docker rmi isidatainsights-client >$LOGFILE 2>&1
-            docker rmi ubuntu:22.04 >$LOGFILE 2>&1
+            docker-compose down >>$LOGFILE 2>&1
+            rm -rf backups/*  >>$LOGFILE 2>&1
+            rm -rf influxdb/data/*  >>$LOGFILE 2>&1
+            rm -rf grafana_extras/grafana.db  >>$LOGFILE 2>&1
+            rm -rf clusters.toml  >>$LOGFILE 2>&1
+            docker images | grep $(basename `pwd`) | awk '{print$3}' | xargs docker rmi >>$LOGFILE 2>&1
+            docker rmi golang >>$LOGFILE 2>&1
+            docker rmi grafana/grafana-oss >>$LOGFILE 2>&1
+            docker rmi influxdb:1.8 >>$LOGFILE 2>&1
+            docker rmi isidatainsights-client >>$LOGFILE 2>&1
+            docker rmi ubuntu:22.04 >>$LOGFILE 2>&1
             rm -f .firstrun
             rm -f $LOGFILE
             echo "Cleanup Complete"
@@ -126,10 +126,10 @@ case $1 in
     build)
         echo "starting container build, may take a few minutes."
         echo "details logged in $LOGFILE"
-        docker-compose build >$LOGFILE 2>&1 && \
-        docker-compose pull  >$LOGFILE 2>&1 && \
+        docker-compose build >>$LOGFILE 2>&1 && \
+        docker-compose pull  >>$LOGFILE 2>&1 && \
         cd client && \
-        docker build -t isidatainsights-client . >$LOGFILE 2>&1 && \
+        docker build -t isidatainsights-client . >>$LOGFILE 2>&1 && \
         cd .. && \
         echo "Completed building containers..." && \
         [[ -f grafana_extras/grafana.db ]] || creategrafanadb >>$LOGFILE 2>&1 && \
