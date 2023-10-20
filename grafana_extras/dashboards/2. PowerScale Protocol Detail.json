@@ -1726,13 +1726,13 @@
           "selected": true,
           "text": [
             "nfs4",
-            "nfs3",
+            "nfs",
             "smb2",
             "smb1"
           ],
           "value": [
             "nfs4",
-            "nfs3",
+            "nfs",
             "smb2",
             "smb1"
           ]
@@ -1750,8 +1750,8 @@
           },
           {
             "selected": true,
-            "text": "nfs3",
-            "value": "nfs3"
+            "text": "nfs",
+            "value": "nfs"
           },
           {
             "selected": true,
@@ -1809,7 +1809,7 @@
             "value": "papi"
           }
         ],
-        "query": "nfs3,nfs4,nfsrdma,smb1,smb2,hdfs,ftp,siq,lsass_in,lsass_out,s3,papi",
+        "query": "nfs,nfs4,nfsrdma,smb1,smb2,hdfs,ftp,siq,lsass_in,lsass_out,s3,papi",
         "queryValue": "",
         "refresh": 0,
         "skipUrlSync": false,
